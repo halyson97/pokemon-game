@@ -22,6 +22,8 @@ export default class Pokemon {
 
 		canvas.drawCanvas();
 		
+		await canvas.drawPokebolas();
+
 		canvas.drawImage(player.positionX, player.positionY)
 
 		const game = new Game(player, canvas, images);

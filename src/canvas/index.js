@@ -22,4 +22,17 @@ export default class Canvas {
 		this.context.clearRect(x, y, 20, 20);
 	}
 
+	drawPokebolas = () => {
+
+		return new Promise(async resolve => {
+			for (let index = 0; index <= this.width; index += 20) {
+				for (let index2 = 0; index2 <= this.height; index2 += 20) {
+					this.drawImage(index, index2, this.images.getPokebola());
+				}				
+			}
+			resolve();
+		})
+
+	}
+
 }
