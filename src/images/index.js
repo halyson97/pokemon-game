@@ -7,27 +7,27 @@ export default class Game {
         this.pokebola = null;
     }  
 
-    getUp = () => {
+    getUp() {
         return this.up;
     }
 
-    getDown = () => {
+    getDown() {
         return this.down;
     }
 
-    getLeft = () => {
+    getLeft() {
         return this.left;
     }
 
-    getRight = () => {
+    getRight() {
         return this.right;
     }
 
-    getPokebola = () => {
+    getPokebola() {
         return this.pokebola;
     }
 
-    loadImage = (image) => {
+    loadImage(image) {
 		return new Promise((resolve, reject) => {
 			const newImage = new Image();
 			newImage.addEventListener('load', () => {
@@ -40,8 +40,7 @@ export default class Game {
 		})
 	}
 
-    loadImages = async () => {
-        
+    async loadImages() {
         this.up = await this.loadImage('images/up.png');
         this.right = await this.loadImage('images/right.png');
         this.down = await this.loadImage('images/down.png');

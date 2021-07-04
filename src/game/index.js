@@ -3,9 +3,11 @@ export default class Game {
         this.player = player;
         this.canvas = canvas;
         this.images = images;
+
+        this.onKeyDown = this.onKeyDown.bind(this);
     }
 
-    move = (direction) => {
+    move(direction) {
         console.log('move to ', direction)
 
         let x = this.player.positionX;
@@ -44,22 +46,24 @@ export default class Game {
         
     }
 
-    addEventsListeners = () => {
-        document.addEventListener('keydown', (e)=>{
-            const moves = {
-                ArrowLeft: 'O',
-                ArrowRight: 'E',
-                ArrowUp: 'N',
-                ArrowDown: 'S',
-            }
-    
-            if(moves[e.key]){
-                this.move(moves[e.key]);
-            }
-        })
+    addEventsListeners() {
+        document.addEventListener('keydown', this.onKeyDown);
     }
 
-    init = () => {
+    onKeyDown(e) {
+        const moves = {
+            ArrowLeft: 'O',
+            ArrowRight: 'E',
+            ArrowUp: 'N',
+            ArrowDown: 'S',
+        }
+
+        if(moves[e.key]){
+            this.move(moves[e.key]);
+        }
+    }
+
+    init() {
         console.log('init game', this)
         this.addEventsListeners()
     }

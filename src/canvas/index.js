@@ -9,30 +9,25 @@ export default class Canvas {
 		this.images = images;
 	}
 
-	drawCanvas = () => {
+	drawCanvas() {
 		this.canva.width = this.width;
 		this.canva.height = this.height;
 	}
 
-	drawImage = (x, y, image = this.images.getUp()) => {
+	drawImage(x, y, image = this.images.getUp()) {
 		this.context.drawImage(image, x, y, this.widthItem, this.widthItem);
 	}
 
-	clear = (x, y) => {
+	clear(x, y) {
 		this.context.clearRect(x, y, 20, 20);
 	}
 
-	drawPokebolas = () => {
-
-		return new Promise(async resolve => {
-			for (let index = 0; index <= this.width; index += 20) {
-				for (let index2 = 0; index2 <= this.height; index2 += 20) {
-					this.drawImage(index, index2, this.images.getPokebola());
-				}				
-			}
-			resolve();
-		})
-
+	drawPokebolas() {
+		for (let index = 0; index <= this.width; index += 20) {
+			for (let index2 = 0; index2 <= this.height; index2 += 20) {
+				this.drawImage(index, index2, this.images.getPokebola());
+			}				
+		}
 	}
 
 }
