@@ -1,21 +1,25 @@
 export default class Canvas {
-    constructor() {  
+	constructor(images) {  
+		this.width = 500;
+		this.height = 500;
+		this.canva = document.querySelector('canvas');
+		this.context = this.canva.getContext('2d');
+		this.widthItem = 20;
 
-      this.width = 500;
-      this.height = 500;
-      this.canva = document.querySelector('canvas');
-      this.context = this.canva.getContext('2d');
-      this.widthItem = 20;
-    }
-  
-    drawCanvas = () => {
-        this.canva.width = this.width;
-        this.canva.height = this.height;
-    }
+		this.images = images;
+	}
 
-    drawImage = (imagem, x, y) => {
-        this.context.drawImage(imagem, x, y, this.widthItem, this.widthItem);
-    }
-  
-  }
-  
+	drawCanvas = () => {
+		this.canva.width = this.width;
+		this.canva.height = this.height;
+	}
+
+	drawImage = (x, y, image = this.images.getUp()) => {
+		this.context.drawImage(image, x, y, this.widthItem, this.widthItem);
+	}
+
+	clear = (x, y) => {
+		this.context.clearRect(x, y, 20, 20);
+	}
+
+}
