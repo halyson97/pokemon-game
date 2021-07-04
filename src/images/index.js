@@ -45,7 +45,7 @@ export default class Game {
         this.right = await this.loadImage('images/right.png');
         this.down = await this.loadImage('images/down.png');
         this.left = await this.loadImage('images/left.png');
-        this.pokebola = await this.loadImage('images/pokebola.png');
+        this.pokebola = await this.loadImage('images/poke.png');
     
     }
   }

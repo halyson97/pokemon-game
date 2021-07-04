@@ -1,10 +1,10 @@
 export default class Canvas {
 	constructor(images) {  
-		this.width = 500;
-		this.height = 500;
+		this.width = 520;
+		this.height = 520;
 		this.canva = document.querySelector('canvas');
 		this.context = this.canva.getContext('2d');
-		this.widthItem = 20;
+		this.widthItem = 40;
 
 		this.images = images;
 	}
@@ -15,16 +15,17 @@ export default class Canvas {
 	}
 
 	drawImage(x, y, image = this.images.getUp()) {
+		this.clear(x, y);
 		this.context.drawImage(image, x, y, this.widthItem, this.widthItem);
 	}
 
 	clear(x, y) {
-		this.context.clearRect(x, y, 20, 20);
+		this.context.clearRect(x, y, this.widthItem, this.widthItem);
 	}
 
 	drawPokebolas() {
-		for (let index = 0; index <= this.width; index += 20) {
-			for (let index2 = 0; index2 <= this.height; index2 += 20) {
+		for (let index = 0; index <= this.width; index += this.widthItem) {
+			for (let index2 = 0; index2 <= this.height; index2 += this.widthItem) {
 				this.drawImage(index, index2, this.images.getPokebola());
 			}				
 		}

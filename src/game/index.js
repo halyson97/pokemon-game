@@ -19,19 +19,19 @@ export default class Game {
         
         switch (direction) {
             case 'E':
-                x += 20;
+                x += this.canvas.widthItem;
                 image = this.images.getRight();
                 break;
             case 'O':
-                x -= 20;
+                x -= this.canvas.widthItem;
                 image = this.images.getLeft();
                 break;
             case 'N':
-                y -= 20;
+                y -= this.canvas.widthItem;
                 image = this.images.getUp();
                 break;
             case 'S':
-                y += 20;
+                y += this.canvas.widthItem;
                 image = this.images.getDown();
                 break;
             default:
