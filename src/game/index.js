@@ -38,6 +38,8 @@ export default class Game {
     
         this.player.setPositions(x, y);
 
+        this.player.capturePokemon(x, y);
+
         this.canvas.drawImage(x, y, image);
         
     }
