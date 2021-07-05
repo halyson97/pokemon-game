@@ -6,16 +6,24 @@ import Form from './form';
 
 export default class Pokemon {
   constructor() {
-    this.imagesToCanvas = null;
+    this.images = null;
 
     this.renderGame = this.renderGame.bind(this);
 
     this.init();
   }
 
-  init() {
+  setImages(images) {
+    this.images = images;
+  }
+
+  async init() {
     const form = new Form(this.renderGame);
     form.init();
+
+    const images = new Images();
+    await images.loadImages();
+    this.setImages(images);
   }
 
   async renderGame(path, animation, form) {
@@ -24,15 +32,13 @@ export default class Pokemon {
     const { widthItem, widthCanva, centerCanva } = this.getSizesByPath(pathLength);
 
     const player = new Player(centerCanva);
-    const images = new Images();
-    await images.loadImages();
 
-    const canvas = new Canvas(images, widthCanva, widthItem);
+    const canvas = new Canvas(this.images, widthCanva, widthItem);
     canvas.drawCanvas();
     canvas.drawPokebolas();
     canvas.drawImage(player.positionX, player.positionY);
 
-    const game = new Game(player, canvas, images, form);
+    const game = new Game(player, canvas, this.images, form);
     game.init(path, animation);
   }
 
