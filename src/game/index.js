@@ -48,6 +48,8 @@ export default class Game {
     } else {
       this.canvas.drawImage(this.player.positionX, this.player.positionY, image);
     }
+
+    document.querySelector('#move').innerHTML = `${direction}`;
   }
 
   addEventsListeners() {
