@@ -12,8 +12,31 @@
 </head>
 <body>
 
+  <div id="modal-initial" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">
+          Vamos capturar Pokemons?
+        </div>
+        <div class="modal-description">
+          <div class="modal-description-text">
+              <div>
+                  Digite a sequencia de entrada, correspondente a instrução ao lado.
+              </div>
+              <div class="modal-description-sample">Ex: NESO</div>
+          </div>
+          <div class="modal-description-instructions">
+              <img src="images/bussula.png" />
+          </div>
+        </div>
+        <form id="form-initial" class="modal-form">
+          <input id="input-path" pattern="^[NESOneso]+$" required type="text" placeholder="Ex: NESO" />
+          <button type="submit">Jogar</button>
+        </form>
+    </div>
+  </div>
+
   <div class="canvas-container">
-    <canvas class="canvas"></canvas>
+    <canvas width="0" class="canvas"></canvas>
   </div>
 
   <div class="info">

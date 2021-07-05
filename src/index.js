@@ -2,6 +2,7 @@ import Canvas from './canvas';
 import Player from './player';
 import Images from './images';
 import Game from './game';
+import Form from './form';
 
 export default class Pokemon {
   constructor() {
@@ -9,7 +10,12 @@ export default class Pokemon {
     this.init();
   }
 
-  async init() {
+  init() {
+    const form = new Form(this.renderGame);
+    form.init();
+  }
+
+  async renderGame(path) {
     const player = new Player();
     const images = new Images();
     await images.loadImages();
