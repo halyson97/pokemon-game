@@ -6,6 +6,12 @@
   height: 100vh;
   padding-top: 30px;
   padding-right: 30px;
+  color: #777;
+}
+
+
+.info spam{
+  color: #333;
 }
 
 .info-content {
