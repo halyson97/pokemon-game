@@ -24,12 +24,12 @@ export default class Game {
       event.preventDefault();
     }
 
-    // const value = this.input.value;
+    const value = this.input.value;
     this.input.value = '';
 
     this.showModal(false);
 
-    // this.renderGame(value);
+    this.renderGame(value);
   }
 
   showModal(isShow) {

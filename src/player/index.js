@@ -1,9 +1,9 @@
 export default class Game {
-  constructor() {
-    this.positionX = 240;
-    this.positionY = 240;
+  constructor(centerCanva) {
+    this.positionX = centerCanva;
+    this.positionY = centerCanva;
 
-    this.pokemonsCaptured = [[240, 240]];
+    this.pokemonsCaptured = [[centerCanva, centerCanva]];
   }
 
   isCaptured(x, y) {

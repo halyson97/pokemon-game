@@ -4,6 +4,8 @@ export default class Game {
     this.canvas = canvas;
     this.images = images;
 
+    this.speed = 400;
+
     this.onKeyDown = this.onKeyDown.bind(this);
   }
 
@@ -62,8 +64,25 @@ export default class Game {
     }
   }
 
-  init() {
+  debounce(time) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, time);
+    });
+  }
+
+  async playAuto(path) {
+    for (let index = 0; index < path.length; index++) {
+      const direction = path[index];
+      await this.debounce(this.speed);
+      this.move(direction);
+    }
+  }
+
+  init(path) {
     console.log('init game', this);
-    this.addEventsListeners();
+    // this.addEventsListeners();
+    this.playAuto(path);
   }
 }

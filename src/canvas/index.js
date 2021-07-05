@@ -1,10 +1,10 @@
 export default class Canvas {
-  constructor(images) {
-    this.width = 520;
-    this.height = 520;
+  constructor(images, widthCanva, widthItem) {
+    this.width = widthCanva;
+    this.height = widthCanva;
     this.canva = document.querySelector('canvas');
     this.context = this.canva.getContext('2d');
-    this.widthItem = 40;
+    this.widthItem = widthItem;
 
     this.images = images;
   }
