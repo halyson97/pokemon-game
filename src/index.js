@@ -18,7 +18,7 @@ export default class Pokemon {
     form.init();
   }
 
-  async renderGame(path) {
+  async renderGame(path, animation) {
     const pathLength = this.getBiggerDirection(path);
 
     const { widthItem, widthCanva, centerCanva } = this.getSizesByPath(pathLength);
@@ -33,7 +33,7 @@ export default class Pokemon {
     canvas.drawImage(player.positionX, player.positionY);
 
     const game = new Game(player, canvas, images);
-    game.init(path);
+    game.init(path, animation);
   }
 
   getSizesByPath(pathLength) {

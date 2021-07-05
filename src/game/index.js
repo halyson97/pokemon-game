@@ -72,16 +72,18 @@ export default class Game {
     });
   }
 
-  async playAuto(path) {
+  async playAuto(path, animation) {
     for (let index = 0; index < path.length; index++) {
       const direction = path[index];
-      await this.debounce(this.speed);
+      if (animation) {
+        await this.debounce(this.speed);
+      }
       this.move(direction);
     }
   }
 
-  async init(path) {
-    await this.playAuto(path);
+  async init(path, animation) {
+    await this.playAuto(path, animation);
     this.addEventsListeners();
   }
 }

@@ -5,6 +5,7 @@ export default class Game {
     this.modal = document.querySelector('#modal-initial');
     this.form = document.querySelector('#form-initial');
     this.input = document.querySelector('#input-path');
+    this.inputAnimation = document.querySelector('#input-animation');
 
     this.submitForm = this.submitForm.bind(this);
     this.onkeyUpInput = this.onkeyUpInput.bind(this);
@@ -29,7 +30,7 @@ export default class Game {
 
     this.showModal(false);
 
-    this.renderGame(value);
+    this.renderGame(value, this.inputAnimation.checked);
   }
 
   showModal(isShow) {
