@@ -46,7 +46,11 @@ export default class Game {
     if (isShow) {
       modal.classList.remove('hidden-modal');
     } else {
-      modal.classList.add('hidden-modal');
+      modal.classList.add('fadeout');
+      setTimeout(() => {
+        modal.classList.remove('fadeout');
+        modal.classList.add('hidden-modal');
+      }, 500);
     }
   }
 
@@ -72,6 +76,7 @@ export default class Game {
 
   showModalSuccess(amountPokemons) {
     this.setResult(amountPokemons);
+    this.showModal(this.modal, false);
     this.showModal(this.modalSuccess, true);
   }
 }
