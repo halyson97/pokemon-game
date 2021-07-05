@@ -60,6 +60,14 @@ export default class Game {
       ArrowRight: 'E',
       ArrowUp: 'N',
       ArrowDown: 'S',
+      a: 'O',
+      d: 'E',
+      w: 'N',
+      s: 'S',
+      A: 'O',
+      D: 'E',
+      W: 'N',
+      S: 'S',
     };
 
     if (moves[e.key]) {
