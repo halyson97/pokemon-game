@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokemon</title>
+  <link rel="shortcut icon" href="images/favicon.ico" />
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/modal.css">
   <link rel="stylesheet" href="css/canvas.css">
@@ -62,8 +63,17 @@
 
   <div class="info">
     <div class="info-content">
-      <div id="countPokemons">
-        1 pokemon
+      <div>
+        Pokemons: <spam id="countPokemons">0</spam>
+      </div>
+      <div>
+        PosiçãoX:  <spam id="playerX">0</spam>
+      </div>
+      <div>
+        PosiçãoY: <spam id="playerY">0</spam>
+      </div>
+      <div class="modal-form content-new-game">
+        <button onclick="window.location.reload()">Novo jogo</button>
       </div>
     </div>
   </div>

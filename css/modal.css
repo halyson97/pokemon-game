@@ -76,6 +76,7 @@
   border-radius: 4px;
   font-size: 1rem;
   margin: 5px 0px;
+  width: 100%;
 }
 
 .modal-form > button:first-child {

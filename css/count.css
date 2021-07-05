@@ -4,9 +4,7 @@
   right: 0px;
   box-sizing: border-box;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 30px;
   padding-right: 30px;
 }
 
@@ -15,4 +13,14 @@
   border-radius: 8px;
   padding: 20px;
   box-sizing: border-box;
+  min-width: 160px;
+}
+
+.content-new-game {
+  width: 150px;
+  margin-top: 20px;
+}
+
+.content-new-game > button {
+  width: 100%;
 }

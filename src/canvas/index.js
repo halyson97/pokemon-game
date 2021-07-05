@@ -30,4 +30,16 @@ export default class Canvas {
       }
     }
   }
+
+  isInsideCanvas(x, y) {
+    if (x < 0 || y < 0) {
+      return false;
+    }
+
+    if ((x + this.widthItem) > this.width || (y + this.widthItem) > this.height) {
+      return false;
+    }
+
+    return true;
+  }
 }

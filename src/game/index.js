@@ -18,8 +18,6 @@ export default class Game {
 
     let image = this.images.getUp();
 
-    this.canvas.clear(x, y);
-
     switch (direction) {
       case 'E':
         x += this.canvas.widthItem;
@@ -41,11 +39,15 @@ export default class Game {
         return;
     }
 
-    this.player.setPositions(x, y);
+    this.canvas.clear(this.player.positionX, this.player.positionY);
 
-    this.player.capturePokemon(x, y);
-
-    this.canvas.drawImage(x, y, image);
+    if (this.canvas.isInsideCanvas(x, y)) {
+      this.player.setPositions(x, y);
+      this.player.capturePokemon(x, y);
+      this.canvas.drawImage(x, y, image);
+    } else {
+      this.canvas.drawImage(this.player.positionX, this.player.positionY, image);
+    }
   }
 
   addEventsListeners() {

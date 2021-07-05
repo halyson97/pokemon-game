@@ -18,11 +18,14 @@ export default class Game {
       this.pokemonsCaptured = pokemons;
     }
 
-    document.querySelector('#countPokemons').innerHTML = `${this.pokemonsCaptured.length} pokemons`;
+    document.querySelector('#countPokemons').innerHTML = `${this.pokemonsCaptured.length}`;
   }
 
   setPositions(x, y) {
     this.positionX = x;
     this.positionY = y;
+
+    document.querySelector('#playerX').innerHTML = `${x}`;
+    document.querySelector('#playerY').innerHTML = `${y}`;
   }
 }

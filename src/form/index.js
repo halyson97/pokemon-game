@@ -22,7 +22,7 @@ export default class Game {
     if (this.input) {
       this.input.addEventListener('keyup', this.onkeyUpInput);
     }
-    if(this.buttonContinue) {
+    if (this.buttonContinue) {
       this.buttonContinue.addEventListener('click', this.clickContinue);
     }
   }
@@ -35,7 +35,9 @@ export default class Game {
     const value = this.input.value;
     this.input.value = '';
 
-    this.showModal(this.modal, false);
+    if (this.inputAnimation.checked) {
+      this.showModal(this.modal, false);
+    }
 
     this.renderGame(value, this.inputAnimation.checked, this);
   }
@@ -49,6 +51,7 @@ export default class Game {
   }
 
   clickContinue() {
+    this.showModal(this.modal, false);
     this.showModal(this.modalSuccess, false);
   }
 
