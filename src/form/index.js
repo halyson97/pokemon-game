@@ -3,12 +3,16 @@ export default class Game {
     this.renderGame = renderGame;
 
     this.modal = document.querySelector('#modal-initial');
+    this.modalSuccess = document.querySelector('#modal-success');
+    this.textResult = document.querySelector('#result');
     this.form = document.querySelector('#form-initial');
     this.input = document.querySelector('#input-path');
     this.inputAnimation = document.querySelector('#input-animation');
+    this.buttonContinue = document.querySelector('#button-continue');
 
     this.submitForm = this.submitForm.bind(this);
     this.onkeyUpInput = this.onkeyUpInput.bind(this);
+    this.clickContinue = this.clickContinue.bind(this);
   }
 
   init() {
@@ -17,6 +21,9 @@ export default class Game {
     }
     if (this.input) {
       this.input.addEventListener('keyup', this.onkeyUpInput);
+    }
+    if(this.buttonContinue) {
+      this.buttonContinue.addEventListener('click', this.clickContinue);
     }
   }
 
@@ -28,17 +35,21 @@ export default class Game {
     const value = this.input.value;
     this.input.value = '';
 
-    this.showModal(false);
+    this.showModal(this.modal, false);
 
-    this.renderGame(value, this.inputAnimation.checked);
+    this.renderGame(value, this.inputAnimation.checked, this);
   }
 
-  showModal(isShow) {
+  showModal(modal, isShow) {
     if (isShow) {
-      this.modal.classList.remove('hidden-modal');
+      modal.classList.remove('hidden-modal');
     } else {
-      this.modal.classList.add('hidden-modal');
+      modal.classList.add('hidden-modal');
     }
+  }
+
+  clickContinue() {
+    this.showModal(this.modalSuccess, false);
   }
 
   onkeyUpInput(event) {
@@ -50,5 +61,14 @@ export default class Game {
     }
 
     event.target.value = event.target.value.toUpperCase();
+  }
+
+  setResult(amount) {
+    this.textResult.innerHTML = `Você capturou ${amount} pokemons e ganhou uma insigna`;
+  }
+
+  showModalSuccess(amountPokemons) {
+    this.setResult(amountPokemons);
+    this.showModal(this.modalSuccess, true);
   }
 }

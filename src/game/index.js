@@ -1,8 +1,9 @@
 export default class Game {
-  constructor(player, canvas, images) {
+  constructor(player, canvas, images, form) {
     this.player = player;
     this.canvas = canvas;
     this.images = images;
+    this.form = form;
 
     this.speed = 400;
 
@@ -80,10 +81,15 @@ export default class Game {
       }
       this.move(direction);
     }
+    if (animation) {
+      await this.debounce(this.speed);
+    }
   }
 
   async init(path, animation) {
     await this.playAuto(path, animation);
     this.addEventsListeners();
+
+    this.form.showModalSuccess(this.player.pokemonsCaptured.length);
   }
 }
