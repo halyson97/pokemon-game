@@ -10,8 +10,8 @@ Vamos capturar pokemons?
 ## Preview
 
 <p align="center">
-  <img src="https://i.imgur.com/ZAkBsCh.png"   width="400">
- </p>
+  <img src="https://i.imgur.com/KKM0gQo.png"   width="800">
+</p>
 
 ## Instalação
 ```bash
