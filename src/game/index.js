@@ -80,9 +80,8 @@ export default class Game {
     }
   }
 
-  init(path) {
-    console.log('init game', this);
-    // this.addEventsListeners();
-    this.playAuto(path);
+  async init(path) {
+    await this.playAuto(path);
+    this.addEventsListeners();
   }
 }
