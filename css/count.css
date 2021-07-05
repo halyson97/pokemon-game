@@ -1,5 +1,18 @@
-.count-pokemon {
-    position: fixed;
-    top: 10px;
-    right: 10px;
+.info {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.info-content {
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
 }
